@@ -9,11 +9,17 @@ import Foundation
 
 struct PlayerListService {
 
+    // MARK: - Private Properties
+    
     private var nbaApi: NbaApi
+    
+    // MARK: - Init
 
     init(nbaApi: NbaApi = NbaApi()) {
         self.nbaApi = nbaApi
     }
+    
+    // MARK: - Public Methods
 
     func fetchPlayers(completion: @escaping ((Result<[Player], RequestError>) -> Void)) {
         nbaApi.fetchPlayers { result in

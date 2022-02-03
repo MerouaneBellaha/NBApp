@@ -9,6 +9,8 @@ import Foundation
 
 final class NbaApi {
     
+    // MARK: - Private Properties
+    
     private let url = URL(string: "https://free-nba.p.rapidapi.com/players")
     private var httpClient = HTTPClient()
     private let batchSize = 100
@@ -16,6 +18,8 @@ final class NbaApi {
         ("x-rapidapi-host", "free-nba.p.rapidapi.com"),
         ("x-rapidapi-key", "6cc884bd28msh7d072d129539379p1e2a11jsn6493c0f5e460")
     ]
+    
+    // MARK: - Public Methods
     
     func fetchPlayers(completion: @escaping ((Result<[PlayerModel], RequestError>) -> Void)) {
         guard let url = url else {

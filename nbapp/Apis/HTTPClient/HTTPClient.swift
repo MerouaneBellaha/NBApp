@@ -9,7 +9,7 @@ import Foundation
 
 final class HTTPClient {
 
-    // MARK: - Properties
+    // MARK: - Private Properties
 
     private let httpEngine: HTTPEngine
 
@@ -18,14 +18,16 @@ final class HTTPClient {
     init(httpEngine: HTTPEngine = HTTPEngine(session: URLSession(configuration: .default))) {
         self.httpEngine = httpEngine
     }
+    
+    // MARK: - Public Methods
 
     func request<T: Decodable>(url: URL,
                                parameters: [(String, Any)]? = nil,
                                httpHeaders: [(String, String)]? = nil,
                                method: HTTPMethod = .get,
                                callback: @escaping (Result<T, RequestError>) -> Void) {
-        let url = encode(baseUrl: url, with: parameters)
-        let request = buildRequest(from: url, with: httpHeaders, with: method)
+        let url = setQueryParameters(url: url, with: parameters)
+        let request = buildRequest(method, from: url, with: httpHeaders)
         
         httpEngine.request(with: request, parameters: parameters) { data, response, error in
             guard error == nil else {
@@ -47,23 +49,25 @@ final class HTTPClient {
             callback(.success(dataDecoded))
         }
     }
+    
+    // MARK: - Private Methods
 
-    private func encode(baseUrl: URL, with parameters: [(String, Any)]?) -> URL {
-        guard var urlComponents = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false),
+    private func setQueryParameters(url: URL, with parameters: [(String, Any)]?) -> URL {
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
               let parameters = parameters,
               !parameters.isEmpty else {
-                  return baseUrl       
+                  return url       
               }
         urlComponents.queryItems = [URLQueryItem]()
         for (key, value) in parameters {
             let queryItem = URLQueryItem(name: key, value: "\(value)")
             urlComponents.queryItems?.append(queryItem)
         }
-        guard let url = urlComponents.url else { return baseUrl }
+        guard let url = urlComponents.url else { return url }
         return url
     }
     
-    private func buildRequest(from url: URL, with httpHeaders: [(String, String)]?, with method: HTTPMethod = .get) -> URLRequest {
+    private func buildRequest(_ method: HTTPMethod = .get, from url: URL, with httpHeaders: [(String, String)]?) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method.asString
         if let httpHeaders = httpHeaders {

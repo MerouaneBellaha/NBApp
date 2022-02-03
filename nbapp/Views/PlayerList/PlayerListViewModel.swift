@@ -8,17 +8,27 @@
 import Foundation
 
 class PlayerListViewModel: ObservableObject {
+    
+    // MARK: - Published Properties
 
     @Published var players: [Player] = []
     @Published var showAlert: Bool = false
+    
+    // MARK: - Private Properties
 
     private let service: PlayerListService
+    
+    // MARK: - Public Properties
 
     var errorDescription: String?
+    
+    // MARK: - Init
 
     init(service: PlayerListService = PlayerListService()) {
         self.service = service
     }
+    
+    // MARK: - Public Methods
 
     func fetchPlayers() {
         service.fetchPlayers { [weak self] result in

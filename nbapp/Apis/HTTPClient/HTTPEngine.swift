@@ -22,7 +22,7 @@ final class HTTPEngine {
         self.session = session
     }
 
-    // MARK: - Methods
+    // MARK: - Public Methods
 
     func request(with request: URLRequest,
                  parameters: [(String, Any)]? = nil,
