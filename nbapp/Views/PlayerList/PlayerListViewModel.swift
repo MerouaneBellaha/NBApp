@@ -11,7 +11,7 @@ final class PlayerListViewModel: ObservableObject {
     
     // MARK: - Published Properties
 
-    @Published var players: [String: [Player]] = [:]
+    @Published var players: [String: [Player]]
     @Published var showAlert: Bool = false
     
     // MARK: - Private Properties
@@ -25,7 +25,8 @@ final class PlayerListViewModel: ObservableObject {
     
     // MARK: - Init
 
-    init(service: PlayerListService = PlayerListService()) {
+    init(service: PlayerListService = PlayerListService(), players: [String: [Player]] = [:]) {
+        self.players = players
         self.service = service
     }
     

@@ -38,7 +38,7 @@ struct PlayerListService {
 
 // MARK: - Array<Player> Extension
 
-fileprivate extension Array where Element == Player {
+extension Array where Element == Player {
     
     /// group Player by their first name first letter
     func groupedByFirstLetter() -> [String: [Player]] {

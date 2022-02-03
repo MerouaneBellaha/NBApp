@@ -11,12 +11,8 @@ struct HomeView: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
-                Color(.blue)
-                    .edgesIgnoringSafeArea(.all)
-                PlayerListView()
-            }
-            .navigationTitle("Players")
+            PlayerListView()
+                .navigationTitle("Players")
         }
     }
 }

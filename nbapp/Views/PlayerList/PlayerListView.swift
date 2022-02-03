@@ -34,6 +34,6 @@ struct PlayerListView: View {
 
 struct PlayersListView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerListView()
+        PlayerListView(viewModel: PlayerListViewModel(players: Factory.createPlayersGroupedByFirstName()))
     }
 }
