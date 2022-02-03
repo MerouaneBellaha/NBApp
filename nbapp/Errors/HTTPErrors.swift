@@ -6,3 +6,22 @@
 //
 
 import Foundation
+
+enum RequestError: Error {
+    case noData, incorrectResponse, undecodableData, error, urlError
+    
+    var description: String {
+        switch self {
+        case .noData:
+            return "No data."
+        case .incorrectResponse:
+            return "Incorrect response"
+        case .undecodableData:
+            return "Undecodable data"
+        case .urlError:
+            return "Url error"
+        case .error:
+            return "Error"
+        }
+    }
+}

@@ -21,7 +21,8 @@ class PlayerListViewModel: ObservableObject {
     }
 
     func fetchPlayers() {
-        service.fetchPlayers { [unowned self] result in
+        service.fetchPlayers { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .failure(let error) :
                 DispatchQueue.main.async {

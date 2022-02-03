@@ -10,7 +10,6 @@ import Foundation
 struct PlayerListService {
 
     private var nbaApi: NbaApi
-    private let url = "https://free-nba.p.rapidapi.com/players"
 
     init(nbaApi: NbaApi = NbaApi()) {
         self.nbaApi = nbaApi

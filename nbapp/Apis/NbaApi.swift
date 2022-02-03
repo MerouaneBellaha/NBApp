@@ -33,8 +33,7 @@ final class NbaApi {
             dispatchGroup.enter()
 
             httpClient.request(url: url,
-                               parameters: parameters,
-                               requestBuilder: buildRequest)
+                               parameters: parameters,                               requestBuilder: buildRequest)
             { (result: Result<PlayerData, RequestError>) in
                 switch result {
                 case .failure(let error):
