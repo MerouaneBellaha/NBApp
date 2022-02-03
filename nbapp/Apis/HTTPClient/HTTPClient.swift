@@ -21,16 +21,12 @@ final class HTTPClient {
 
     func request<T: Decodable>(url: URL,
                                parameters: [(String, Any)]? = nil,
-                               requestBuilder: ((URL) -> URLRequest)? = nil,
+                               httpHeaders: [(String, String)]? = nil,
+                               method: HTTPMethod = .get,
                                callback: @escaping (Result<T, RequestError>) -> Void) {
+        let url = encode(baseUrl: url, with: parameters)
+        let request = buildRequest(from: url, with: httpHeaders, with: method)
         
-        guard let requestBuilder = requestBuilder else {
-            callback(.failure(.error))
-            return
-        }
-
-        let request = requestBuilder(encode(baseUrl: url, with: parameters))
-
         httpEngine.request(with: request, parameters: parameters) { data, response, error in
             guard error == nil else {
                 callback(.failure(.error))
@@ -53,7 +49,11 @@ final class HTTPClient {
     }
 
     private func encode(baseUrl: URL, with parameters: [(String, Any)]?) -> URL {
-        guard var urlComponents = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false), let parameters = parameters, !parameters.isEmpty else { return baseUrl }
+        guard var urlComponents = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false),
+              let parameters = parameters,
+              !parameters.isEmpty else {
+                  return baseUrl       
+              }
         urlComponents.queryItems = [URLQueryItem]()
         for (key, value) in parameters {
             let queryItem = URLQueryItem(name: key, value: "\(value)")
@@ -61,5 +61,16 @@ final class HTTPClient {
         }
         guard let url = urlComponents.url else { return baseUrl }
         return url
+    }
+    
+    private func buildRequest(from url: URL, with httpHeaders: [(String, String)]?, with method: HTTPMethod = .get) -> URLRequest {
+        var request = URLRequest(url: url)
+        request.httpMethod = method.asString
+        if let httpHeaders = httpHeaders {
+            for (key, value) in httpHeaders {
+                request.setValue(value, forHTTPHeaderField: key)
+            }
+        }
+        return request
     }
 }

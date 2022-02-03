@@ -8,17 +8,21 @@
 import Foundation
 
 final class NbaApi {
-
+    
     private let url = URL(string: "https://free-nba.p.rapidapi.com/players")
     private var httpClient = HTTPClient()
     private let batchSize = 100
-
+    private let httpHeaders = [
+        ("x-rapidapi-host", "free-nba.p.rapidapi.com"),
+        ("x-rapidapi-key", "6cc884bd28msh7d072d129539379p1e2a11jsn6493c0f5e460")
+    ]
+    
     func fetchPlayers(completion: @escaping ((Result<[PlayerModel], RequestError>) -> Void)) {
         guard let url = url else {
             completion(.failure(.urlError))
             return
         }
-
+        
         var players: [PlayerModel] = []
         var lastBatchSize: Int = 0
         var pagination: Int = 0
@@ -26,17 +30,17 @@ final class NbaApi {
             ("page", pagination),
             ("per_page", 100)
         ]}
-
+        
         
         var isOnError: Bool = false
         let dispatchGroup = DispatchGroup()
-
+        
         repeat {
             dispatchGroup.enter()
-
+            
             httpClient.request(url: url,
                                parameters: parameters,
-                               requestBuilder: buildRequest)
+                               httpHeaders: httpHeaders)
             { (result: Result<PlayerData, RequestError>) in
                 switch result {
                 case .failure(let error):
@@ -50,7 +54,7 @@ final class NbaApi {
                 }
             }
         } while lastBatchSize == batchSize
-
+        
         dispatchGroup.notify(queue: .main) {
             if isOnError {
                 completion(.failure(.error))
@@ -58,15 +62,5 @@ final class NbaApi {
                 completion(.success(players))
             }
         }
-    }
-
-    private func buildRequest(with url: URL) -> URLRequest {
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.setValue("free-nba.p.rapidapi.com",
-                         forHTTPHeaderField: "x-rapidapi-host")
-        request.setValue("6cc884bd28msh7d072d129539379p1e2a11jsn6493c0f5e460",
-                         forHTTPHeaderField: "x-rapidapi-key")
-        return request
     }
 }
