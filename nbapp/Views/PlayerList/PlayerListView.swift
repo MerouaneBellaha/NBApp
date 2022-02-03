@@ -11,8 +11,7 @@ struct PlayerListView: View {
 
     var body: some View {
         List(viewModel.players) { player in
-            Text(player.firtsName)
-            Text(player.lastName)
+            Text(player.firtsName + " " + player.lastName)
         }
     }
 
