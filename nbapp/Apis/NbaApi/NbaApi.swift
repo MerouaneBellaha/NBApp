@@ -15,8 +15,8 @@ final class NbaApi {
     private var httpClient = HTTPClient()
     private let batchSize = 100
     private let httpHeaders = [
-        (Environment.Api.Nba.apiHostKey, Environment.Api.Nba.apiHostKey),
-        (Environment.Api.Nba.apiKeyKey, Environment.Api.Nba.apiHostValue)
+        (Environment.Api.Nba.apiHostKey, Environment.Api.Nba.apiHostValue),
+        (Environment.Api.Nba.apiKeyKey, Environment.Api.Nba.apiKeyValue)
     ]
     
     // MARK: - Public Methods
