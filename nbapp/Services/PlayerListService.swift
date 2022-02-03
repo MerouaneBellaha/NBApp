@@ -19,6 +19,7 @@ struct PlayerListService {
         nbaApi.fetchPlayers { result in
             switch result {
             case .failure(let error) :
+                print("ook")
                 completion(.failure(.error))
             case .success(let players) :
                 let players = players

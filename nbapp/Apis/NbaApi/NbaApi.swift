@@ -27,17 +27,21 @@ final class NbaApi {
             ("per_page", 100)
         ]}
 
+        
+        var isOnError: Bool = false
         let dispatchGroup = DispatchGroup()
 
         repeat {
             dispatchGroup.enter()
 
             httpClient.request(url: url,
-                               parameters: parameters,                               requestBuilder: buildRequest)
+                               parameters: parameters,
+                               requestBuilder: buildRequest)
             { (result: Result<PlayerData, RequestError>) in
                 switch result {
                 case .failure(let error):
-                    completion(.failure(.error))
+                    isOnError = true
+                    dispatchGroup.leave()
                 case .success(let playersData):
                     lastBatchSize = playersData.data.count
                     pagination += 1
@@ -48,7 +52,11 @@ final class NbaApi {
         } while lastBatchSize == batchSize
 
         dispatchGroup.notify(queue: .main) {
-            completion(.success(players))
+            if isOnError {
+                completion(.failure(.error))
+            } else {
+                completion(.success(players))
+            }
         }
     }
 

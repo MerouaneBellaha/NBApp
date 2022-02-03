@@ -23,6 +23,7 @@ final class HTTPClient {
                                parameters: [(String, Any)]? = nil,
                                requestBuilder: ((URL) -> URLRequest)? = nil,
                                callback: @escaping (Result<T, RequestError>) -> Void) {
+        
         guard let requestBuilder = requestBuilder else {
             callback(.failure(.error))
             return
