@@ -19,9 +19,13 @@ struct PlayerListView: View {
             ForEach(viewModel.playersFirstLetters, id: \.self) { firstLetter in
                 Section(header: Text(firstLetter.capitalized)) {
                     ForEach(viewModel.getPlayersForKey(firstLetter), id: \.id) { player in
-                        Text(player.firstName + " " + player.lastName)
+                        PlayerCellView(playersFullName: (
+                            firstName: player.firstName, lastName: player.lastName)
+                        )
                     }
                 }
+                .font(.headline)
+                .foregroundColor(Color.primaryBlue)
             }
         }
         .listStyle(.insetGrouped)
