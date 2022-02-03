@@ -21,7 +21,7 @@ struct PlayerListService {
     
     // MARK: - Public Methods
 
-    func fetchPlayers(completion: @escaping ((Result<[Player], RequestError>) -> Void)) {
+    func fetchPlayers(completion: @escaping ((Result<[String: [Player]], RequestError>) -> Void)) {
         nbaApi.fetchPlayers { result in
             switch result {
             case .failure(let error) :
@@ -29,9 +29,20 @@ struct PlayerListService {
             case .success(let players) :
                 let players = players
                     .compactMap { Player(playerModel: $0) }
-                    .sorted { $0.firtsName.lowercased() < $1.firtsName.lowercased() }
+                    .groupedByFirstLetter()
                 completion(.success(players))
             }
         }
+    }
+}
+
+// MARK: - Array<Player> Extension
+
+fileprivate extension Array where Element == Player {
+    
+    /// group Player by their first name first letter
+    func groupedByFirstLetter() -> [String: [Player]] {
+        let sortedSelf = self.sorted { $0.firstName.lowercased() < $1.firstName.lowercased() }
+        return Dictionary(grouping: sortedSelf, by: { String($0.firstName.first!) })
     }
 }

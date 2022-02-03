@@ -7,11 +7,11 @@
 
 import Foundation
 
-class PlayerListViewModel: ObservableObject {
+final class PlayerListViewModel: ObservableObject {
     
     // MARK: - Published Properties
 
-    @Published var players: [Player] = []
+    @Published var players: [String: [Player]] = [:]
     @Published var showAlert: Bool = false
     
     // MARK: - Private Properties
@@ -21,6 +21,7 @@ class PlayerListViewModel: ObservableObject {
     // MARK: - Public Properties
 
     var errorDescription: String?
+    var playersFirstLetters: [String] { players.keys.sorted() }
     
     // MARK: - Init
 
@@ -45,5 +46,12 @@ class PlayerListViewModel: ObservableObject {
                 }
             }
         }
+    }
+   
+    func getPlayersForKey(_ letter: String) -> [Player] {
+        guard let players = players[letter] else {
+            return []
+        }
+        return players
     }
 }
