@@ -22,6 +22,7 @@
 		CBB5579627AB1749000D4EC2 /* nbappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5579527AB1749000D4EC2 /* nbappTests.swift */; };
 		CBB557A127AB1749000D4EC2 /* nbappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB557A027AB1749000D4EC2 /* nbappUITests.swift */; };
 		CBD100EC27AC171C00F7DF6A /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD100EB27AC171C00F7DF6A /* HTTPMethod.swift */; };
+		CBD100EE27AC429D00F7DF6A /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD100ED27AC429D00F7DF6A /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		CBB557A027AB1749000D4EC2 /* nbappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nbappUITests.swift; sourceTree = "<group>"; };
 		CBB557A227AB1749000D4EC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBD100EB27AC171C00F7DF6A /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		CBD100ED27AC429D00F7DF6A /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				CBB5578727AB1749000D4EC2 /* Assets.xcassets */,
 				CBB5578C27AB1749000D4EC2 /* Info.plist */,
 				CBB5578927AB1749000D4EC2 /* Preview Content */,
+				CBD100ED27AC429D00F7DF6A /* Environment.swift */,
 			);
 			path = nbapp;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB00603327ABC0C70000379E /* HTTPErrors.swift in Sources */,
+				CBD100EE27AC429D00F7DF6A /* Environment.swift in Sources */,
 				CB00601427ABBF4B0000379E /* PlayerModel.swift in Sources */,
 				CB00600E27ABBF150000379E /* PlayerListService.swift in Sources */,
 				CBD100EC27AC171C00F7DF6A /* HTTPMethod.swift in Sources */,

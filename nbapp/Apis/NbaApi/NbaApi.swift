@@ -11,12 +11,12 @@ final class NbaApi {
     
     // MARK: - Private Properties
     
-    private let url = URL(string: "https://free-nba.p.rapidapi.com/players")
+    private let url = URL(string: Environment.Api.Nba.url)
     private var httpClient = HTTPClient()
     private let batchSize = 100
     private let httpHeaders = [
-        ("x-rapidapi-host", "free-nba.p.rapidapi.com"),
-        ("x-rapidapi-key", "6cc884bd28msh7d072d129539379p1e2a11jsn6493c0f5e460")
+        (Environment.Api.Nba.apiHostKey, Environment.Api.Nba.apiHostKey),
+        (Environment.Api.Nba.apiKeyKey, Environment.Api.Nba.apiHostValue)
     ]
     
     // MARK: - Public Methods
@@ -31,8 +31,8 @@ final class NbaApi {
         var lastBatchSize: Int = 0
         var pagination: Int = 0
         var parameters: [(String, Int)] {[
-            ("page", pagination),
-            ("per_page", 100)
+            (Environment.Api.Nba.paginationParameterKey, pagination),
+            (Environment.Api.Nba.batchSizeParameterKey, 100)
         ]}
         
         
