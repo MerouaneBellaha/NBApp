@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB00600827ABBE920000379E /* PlayerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00600727ABBE920000379E /* PlayerListViewModel.swift */; };
+		CB00600E27ABBF150000379E /* PlayerListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00600D27ABBF150000379E /* PlayerListService.swift */; };
+		CB00601427ABBF4B0000379E /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00601327ABBF4B0000379E /* PlayerModel.swift */; };
+		CB00601927ABBF650000379E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00601827ABBF650000379E /* Player.swift */; };
+		CB00601F27ABBFDA0000379E /* NbaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00601E27ABBFDA0000379E /* NbaApi.swift */; };
+		CB00602427ABC01E0000379E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00602327ABC01E0000379E /* HTTPClient.swift */; };
+		CB00602D27ABC07F0000379E /* HTTPEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00602C27ABC07F0000379E /* HTTPEngine.swift */; };
+		CB00603327ABC0C70000379E /* HTTPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00603227ABC0C70000379E /* HTTPErrors.swift */; };
 		CBB5578427AB1741000D4EC2 /* nbappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5578327AB1741000D4EC2 /* nbappApp.swift */; };
-		CBB5578627AB1741000D4EC2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5578527AB1741000D4EC2 /* ContentView.swift */; };
+		CBB5578627AB1741000D4EC2 /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5578527AB1741000D4EC2 /* PlayerListView.swift */; };
 		CBB5578827AB1749000D4EC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBB5578727AB1749000D4EC2 /* Assets.xcassets */; };
 		CBB5578B27AB1749000D4EC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBB5578A27AB1749000D4EC2 /* Preview Assets.xcassets */; };
 		CBB5579627AB1749000D4EC2 /* nbappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5579527AB1749000D4EC2 /* nbappTests.swift */; };
@@ -33,9 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB00600727ABBE920000379E /* PlayerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListViewModel.swift; sourceTree = "<group>"; };
+		CB00600D27ABBF150000379E /* PlayerListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListService.swift; sourceTree = "<group>"; };
+		CB00601327ABBF4B0000379E /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
+		CB00601827ABBF650000379E /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		CB00601E27ABBFDA0000379E /* NbaApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NbaApi.swift; sourceTree = "<group>"; };
+		CB00602327ABC01E0000379E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		CB00602C27ABC07F0000379E /* HTTPEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEngine.swift; sourceTree = "<group>"; };
+		CB00603227ABC0C70000379E /* HTTPErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPErrors.swift; sourceTree = "<group>"; };
 		CBB5578027AB1741000D4EC2 /* nbapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nbapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB5578327AB1741000D4EC2 /* nbappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nbappApp.swift; sourceTree = "<group>"; };
-		CBB5578527AB1741000D4EC2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CBB5578527AB1741000D4EC2 /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
 		CBB5578727AB1749000D4EC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CBB5578A27AB1749000D4EC2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CBB5578C27AB1749000D4EC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +88,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB005FFF27ABBE620000379E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CB00600027ABBE710000379E /* PlayerList */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CB00600027ABBE710000379E /* PlayerList */ = {
+			isa = PBXGroup;
+			children = (
+				CBB5578527AB1741000D4EC2 /* PlayerListView.swift */,
+				CB00600727ABBE920000379E /* PlayerListViewModel.swift */,
+			);
+			path = PlayerList;
+			sourceTree = "<group>";
+		};
+		CB00600C27ABBEFC0000379E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CB00600D27ABBF150000379E /* PlayerListService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CB00601227ABBF2A0000379E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB00601327ABBF4B0000379E /* PlayerModel.swift */,
+				CB00601827ABBF650000379E /* Player.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CB00601D27ABBFCF0000379E /* Apis */ = {
+			isa = PBXGroup;
+			children = (
+				CB00602827ABC02F0000379E /* HTTPClient */,
+				CB00601E27ABBFDA0000379E /* NbaApi.swift */,
+			);
+			path = Apis;
+			sourceTree = "<group>";
+		};
+		CB00602827ABC02F0000379E /* HTTPClient */ = {
+			isa = PBXGroup;
+			children = (
+				CB00602327ABC01E0000379E /* HTTPClient.swift */,
+				CB00602C27ABC07F0000379E /* HTTPEngine.swift */,
+			);
+			path = HTTPClient;
+			sourceTree = "<group>";
+		};
+		CB00603127ABC0B30000379E /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				CB00603227ABC0C70000379E /* HTTPErrors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 		CBB5577727AB1741000D4EC2 = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +171,12 @@
 		CBB5578227AB1741000D4EC2 /* nbapp */ = {
 			isa = PBXGroup;
 			children = (
+				CB00603127ABC0B30000379E /* Errors */,
+				CB00601D27ABBFCF0000379E /* Apis */,
+				CB00601227ABBF2A0000379E /* Models */,
+				CB00600C27ABBEFC0000379E /* Services */,
+				CB005FFF27ABBE620000379E /* Views */,
 				CBB5578327AB1741000D4EC2 /* nbappApp.swift */,
-				CBB5578527AB1741000D4EC2 /* ContentView.swift */,
 				CBB5578727AB1749000D4EC2 /* Assets.xcassets */,
 				CBB5578C27AB1749000D4EC2 /* Info.plist */,
 				CBB5578927AB1749000D4EC2 /* Preview Content */,
@@ -259,8 +339,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBB5578627AB1741000D4EC2 /* ContentView.swift in Sources */,
+				CB00603327ABC0C70000379E /* HTTPErrors.swift in Sources */,
+				CB00601427ABBF4B0000379E /* PlayerModel.swift in Sources */,
+				CB00600E27ABBF150000379E /* PlayerListService.swift in Sources */,
+				CB00602427ABC01E0000379E /* HTTPClient.swift in Sources */,
+				CB00602D27ABC07F0000379E /* HTTPEngine.swift in Sources */,
+				CBB5578627AB1741000D4EC2 /* PlayerListView.swift in Sources */,
 				CBB5578427AB1741000D4EC2 /* nbappApp.swift in Sources */,
+				CB00601927ABBF650000379E /* Player.swift in Sources */,
+				CB00600827ABBE920000379E /* PlayerListViewModel.swift in Sources */,
+				CB00601F27ABBFDA0000379E /* NbaApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
