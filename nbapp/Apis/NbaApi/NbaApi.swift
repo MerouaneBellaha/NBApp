@@ -51,7 +51,7 @@ final class NbaApi: NbaApiProtocol {
                                httpHeaders: httpHeaders)
             { (result: Result<PlayerData, RequestError>) in
                 switch result {
-                case .failure(let _):
+                case .failure(_):
                     isOnError = true
                     dispatchGroup.leave()
                 case .success(let playersData):

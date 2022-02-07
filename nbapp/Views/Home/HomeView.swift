@@ -14,7 +14,7 @@ class HomeViewState: ObservableObject {
 struct HomeView: View {
     
     @StateObject var state = HomeViewState()
-    var playerListViewModel: PlayerListViewModel
+    @ObservedObject var playerListViewModel: PlayerListViewModel
     
     init(viewModel: PlayerListViewModel = PlayerListViewModel()) {
         playerListViewModel = viewModel
@@ -26,11 +26,8 @@ struct HomeView: View {
             PlayerListView(viewModel: playerListViewModel)
                 .navigationTitle("Players")
                 .toolbar {
-                    Button(action: {
-                        playerListViewModel.fetchPlayers()
-                    }, label: {
-                        refreshImage
-                    })
+                    Button(action: { playerListViewModel.fetchPlayers() },
+                           label: { refreshImage })
                 }
         }
         .sheet(isPresented: $state.showModal,
@@ -38,14 +35,23 @@ struct HomeView: View {
             Text("hello")
         }
                .environmentObject(state)
+               .alert(isPresented: $playerListViewModel.showAlert) {
+                   errorAlert
+               }
     }
 }
 
 // MARK: - View Properties
 
 extension HomeView {
-    var refreshImage: some View {
+    private var refreshImage: some View {
         Image(systemName: "arrow.clockwise.circle.fill")
             .foregroundColor(Color.primaryBlue)
+    }
+    
+    private var errorAlert: Alert {
+        Alert(title: Text("Error"),
+              message: Text(playerListViewModel.errorDescription ?? ""),
+              dismissButton: .default(Text("Ok")))
     }
 }
