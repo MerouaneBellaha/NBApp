@@ -11,7 +11,6 @@ struct PlayerListView: View {
     
     init(viewModel: PlayerListViewModel = PlayerListViewModel()) {
         self.viewModel = viewModel
-        viewModel.fetchPlayers()
     }
     
     var body: some View {

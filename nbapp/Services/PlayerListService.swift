@@ -28,7 +28,7 @@ struct PlayerListService: PlayerListServiceInterface {
     func fetchPlayers(completion: @escaping ((Result<[String: [Player]], RequestError>) -> Void)) {
         nbaApi.fetchPlayers { result in
             switch result {
-            case .failure(let error) :
+            case .failure(let _) :
                 completion(.failure(.error))
             case .success(let players) :
                 let players = players

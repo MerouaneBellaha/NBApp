@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PlayerCellView: View {
     
+    @EnvironmentObject var state: HomeViewState
+    
     var playersFullName: (firstName: String, lastName: String)
     
     var body: some View {
@@ -18,6 +20,9 @@ struct PlayerCellView: View {
                 .font(.body)
         }
         .listRowBackground(Color.lightBrown)
+        .onTapGesture {
+            state.showModal.toggle()
+        }
     }
 }
 
