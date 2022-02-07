@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct PlayerListService {
+protocol PlayerListServiceInterface {
+    func fetchPlayers(completion: @escaping ((Result<[String: [Player]], RequestError>) -> Void))
+}
+
+struct PlayerListService: PlayerListServiceInterface {
 
     // MARK: - Private Properties
     

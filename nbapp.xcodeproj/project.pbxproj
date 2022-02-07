@@ -16,6 +16,7 @@
 		CB00602D27ABC07F0000379E /* HTTPEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00602C27ABC07F0000379E /* HTTPEngine.swift */; };
 		CB00603327ABC0C70000379E /* HTTPErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00603227ABC0C70000379E /* HTTPErrors.swift */; };
 		CB7E7CB027B16CFC0029ED3E /* NbaApiMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7E7CAF27B16CFC0029ED3E /* NbaApiMock.swift */; };
+		CB7E7CB227B1800D0029ED3E /* PlayerListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7E7CB127B1800D0029ED3E /* PlayerListViewModelTest.swift */; };
 		CBB5578427AB1741000D4EC2 /* nbappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5578327AB1741000D4EC2 /* nbappApp.swift */; };
 		CBB5578627AB1741000D4EC2 /* PlayerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5578527AB1741000D4EC2 /* PlayerListView.swift */; };
 		CBB5578827AB1749000D4EC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBB5578727AB1749000D4EC2 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		CB00602C27ABC07F0000379E /* HTTPEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPEngine.swift; sourceTree = "<group>"; };
 		CB00603227ABC0C70000379E /* HTTPErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPErrors.swift; sourceTree = "<group>"; };
 		CB7E7CAF27B16CFC0029ED3E /* NbaApiMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NbaApiMock.swift; sourceTree = "<group>"; };
+		CB7E7CB127B1800D0029ED3E /* PlayerListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListViewModelTest.swift; sourceTree = "<group>"; };
 		CBB5578027AB1741000D4EC2 /* nbapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nbapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB5578327AB1741000D4EC2 /* nbappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nbappApp.swift; sourceTree = "<group>"; };
 		CBB5578527AB1741000D4EC2 /* PlayerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListView.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				CBB5579527AB1749000D4EC2 /* PlayerListServiceTest.swift */,
 				CB7E7CAF27B16CFC0029ED3E /* NbaApiMock.swift */,
+				CB7E7CB127B1800D0029ED3E /* PlayerListViewModelTest.swift */,
 				CBB5579727AB1749000D4EC2 /* Info.plist */,
 			);
 			path = nbappTests;
@@ -342,6 +345,7 @@
 			files = (
 				CB7E7CB027B16CFC0029ED3E /* NbaApiMock.swift in Sources */,
 				CBB5579627AB1749000D4EC2 /* PlayerListServiceTest.swift in Sources */,
+				CB7E7CB227B1800D0029ED3E /* PlayerListViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

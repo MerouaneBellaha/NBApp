@@ -16,7 +16,7 @@ final class PlayerListViewModel: ObservableObject {
     
     // MARK: - Private Properties
 
-    private let service: PlayerListService
+    private let service: PlayerListServiceInterface
     
     // MARK: - Public Properties
 
@@ -25,7 +25,7 @@ final class PlayerListViewModel: ObservableObject {
     
     // MARK: - Init
 
-    init(service: PlayerListService = PlayerListService(), players: [String: [Player]] = [:]) {
+    init(service: PlayerListServiceInterface = PlayerListService(), players: [String: [Player]] = [:]) {
         self.players = players
         self.service = service
     }
