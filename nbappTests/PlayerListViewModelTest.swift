@@ -21,6 +21,8 @@ class PlayerListViewModelTest: XCTestCase {
         viewModel = nil
     }
     
+    // MARK: - fetchPlayers()
+    
     func testGivenServiceResultIsFailure_WhenFetchPlayers_ThenShouldFailWithRequestErrorDotErrorAndUpdateErrorDescription() {
         service.result = .failure(.error)
         
@@ -59,6 +61,28 @@ class PlayerListViewModelTest: XCTestCase {
         
         wait(for: [expectation], timeout: 1)
     }
+    
+    // MARK: - getPlayersForKey
+    
+    func testGivenLetterDoesntExistInPlayers_WhenGetPlayerForKey_ThenShouldReturnEmptyArray() {
+        
+        viewModel.players = ["o": [Player(playerModel: PlayerModel(id: 0, first_name: "ok", last_name: "okok"))]]
+        
+        let result = viewModel.getPlayersForKey("u")
+        
+        XCTAssertTrue(result.isEmpty)
+    }
+    
+    func testGivenLetterExistInPlayers_WhenGetPlayerForKey_ThenShouldReturnValueForKey() {
+        
+        viewModel.players = ["o": [Player(playerModel: PlayerModel(id: 0, first_name: "ok", last_name: "okok"))]]
+        
+        let result = viewModel.getPlayersForKey("o")
+        
+        XCTAssertEqual(result, [Player(playerModel: PlayerModel(id: 0, first_name: "ok", last_name: "okok"))])
+    }
+    
+    
 }
 
 class PlayerListServiceMock: PlayerListServiceInterface {
