@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class NbaApi {
+protocol NbaApiProtocol {
+    func fetchPlayers(completion: @escaping ((Result<[PlayerModel], RequestError>) -> Void))
+}
+
+final class NbaApi: NbaApiProtocol {
     
     // MARK: - Private Properties
     

@@ -11,11 +11,11 @@ struct PlayerListService {
 
     // MARK: - Private Properties
     
-    private var nbaApi: NbaApi
+    private var nbaApi: NbaApiProtocol
     
     // MARK: - Init
 
-    init(nbaApi: NbaApi = NbaApi()) {
+    init(nbaApi: NbaApiProtocol = NbaApi()) {
         self.nbaApi = nbaApi
     }
     
