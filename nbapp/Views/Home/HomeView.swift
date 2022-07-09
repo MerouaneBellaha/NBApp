@@ -24,7 +24,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             PlayerListView(viewModel: playerListViewModel)
-                .navigationTitle("Players")
+                .navigationTitle("pasteqa")
                 .toolbar {
                     Button(action: {
                         playerListViewModel.fetchPlayers()
@@ -48,4 +48,28 @@ extension HomeView {
         Image(systemName: "arrow.clockwise.circle.fill")
             .foregroundColor(Color.primaryBlue)
     }
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
+        HomeView()
+                .previewDevice(PreviewDevice(rawValue: "iPod touch (7th generation)"))
+    }
+}
+
+//no-commit
+class HomeView_Preview: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+
+    #if DEBUG
+    @objc class func injected() {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        windowScene?.windows.first?.rootViewController =
+                UIHostingController(rootView: HomeView())
+    }
+    #endif
 }

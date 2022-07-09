@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B84F7B5A09FC6CA1FC25A89 /* HomeView_preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B84FF625BF688A40B359960 /* HomeView_preview.swift */; };
 		CB00600827ABBE920000379E /* PlayerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00600727ABBE920000379E /* PlayerListViewModel.swift */; };
 		CB00600E27ABBF150000379E /* PlayerListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00600D27ABBF150000379E /* PlayerListService.swift */; };
 		CB00601427ABBF4B0000379E /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB00601327ABBF4B0000379E /* PlayerModel.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B84FF625BF688A40B359960 /* HomeView_preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView_preview.swift; sourceTree = "<group>"; };
 		CB00600727ABBE920000379E /* PlayerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListViewModel.swift; sourceTree = "<group>"; };
 		CB00600D27ABBF150000379E /* PlayerListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListService.swift; sourceTree = "<group>"; };
 		CB00601327ABBF4B0000379E /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				CBD100F227AC564000F7DF6A /* HomeView.swift */,
+				2B84FF625BF688A40B359960 /* HomeView_preview.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				CB00601927ABBF650000379E /* Player.swift in Sources */,
 				CB00600827ABBE920000379E /* PlayerListViewModel.swift in Sources */,
 				CB00601F27ABBFDA0000379E /* NbaApi.swift in Sources */,
+				2B84F7B5A09FC6CA1FC25A89 /* HomeView_preview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +419,9 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"\"-Xlinker -interposable\"",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -469,6 +476,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"\"-Xlinker -interposable\"",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
